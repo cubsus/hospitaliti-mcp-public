@@ -3,7 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { ListToolsRequestSchema, CallToolRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 
 const server = new Server(
-  { name: "laravel-knowledge-base", version: "1.0.0" },
+  { name: "hospitaliti-jobs-knowledge-base", version: "1.0.0" },
   { capabilities: { tools: {} } }
 );
 
@@ -11,8 +11,8 @@ const server = new Server(
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
     {
-      name: "search_knowledge_base",
-      description: "Search data from Laravel knowledge base API",
+      name: "search_jobs_knowledge_base",
+      description: "Searches job-related content from the Hospitaliti Jobs API",
       inputSchema: {
         type: "object",
         properties: {
@@ -27,9 +27,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
 // Define how the tool runs
 server.setRequestHandler(CallToolRequestSchema, async (req) => {
 
-  if (req.params.name === "search_knowledge_base") {
+  if (req.params.name === "search_jobs_knowledge_base") {
 
     const query = req.params.arguments.query;
+
+    // const apiUrl = 'https://hospitaliti.io';
     const apiUrl = process.env.API_URL;
 
     try {
