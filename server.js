@@ -30,8 +30,6 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
   if (req.params.name === "search_jobs_knowledge_base") {
 
     const query = req.params.arguments.query;
-
-    // const apiUrl = 'https://hospitaliti.io';
     const apiUrl = process.env.API_URL;
 
     try {

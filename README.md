@@ -38,9 +38,12 @@ Make sure your **LLM configuration** (e.g., in your client or IDE) is set to con
 
 ```
 "mcpServers": {
-  "hospitaliti-jobs": {
+  "hospitaliti-jobs-knowledge-base": {
     "command": "node",
     "args": ["path/to/server.js"]
+    "env": {
+      "API_URL": "https://your-domain.local"
+    }
   }
 }
 ```
@@ -49,8 +52,8 @@ or, if running remotely:
 
 ```
 "mcpServers": {
-  "hospitaliti-jobs": {
-    "url": "http://your-server-domain:port"
+  "hospitaliti-jobs-knowledge-base": {
+    "url": "https://mcp-public.hospitaliti.io"
   }
 }
 ```
