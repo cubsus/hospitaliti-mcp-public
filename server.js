@@ -33,7 +33,7 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
     const apiUrl = process.env.API_URL;
 
     try {
-      const response = await fetch(`${apiUrl}/api/mcp/search?q=${encodeURIComponent(query)}`);
+      const response = await fetch(`${apiUrl}/api/mcp/jobs/search?q=${encodeURIComponent(query)}`);
       const data = await response.json();
 
       return {
